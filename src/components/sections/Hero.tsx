@@ -11,7 +11,7 @@ const fadeUp = (delay: number) => ({
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-8 text-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 text-center overflow-hidden">
       {/* Brand symbol — ambient watermark */}
       <motion.div
         initial={{ opacity: 0 }}

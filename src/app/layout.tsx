@@ -15,6 +15,16 @@ export const metadata: Metadata = {
   title: "Project YATA — Has Begun.",
   description:
     "Yielding Autonomous Thinking Assistant. An AI partner that guides, not replaces. 人が毎日自然に話しかけたくなるAIを創る。",
+  keywords: [
+    "YATA",
+    "Yielding Autonomous Thinking Assistant",
+    "AI",
+    "AI partner",
+    "voice AI",
+    "SunHighest Electronics",
+    "人工知能",
+    "AIアシスタント",
+  ],
   openGraph: {
     title: "Project YATA — Has Begun.",
     description:
@@ -29,9 +39,16 @@ export const metadata: Metadata = {
       "Creating an AI that people naturally want to talk to every day.",
   },
   icons: {
-    icon: [
-      { url: "/brand/yata-favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/brand/yata-favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/brand/yata-favicon.svg", type: "image/svg+xml" }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 }
 

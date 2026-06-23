@@ -13,14 +13,14 @@ const principles = [
 
 export function Mission() {
   return (
-    <section className="py-32 px-8">
+    <section className="py-20 md:py-32 px-5 sm:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-20"
+          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-12 md:mb-20"
         >
           Mission
         </motion.p>
@@ -30,7 +30,7 @@ export function Mission() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-24 max-w-3xl"
+          className="mb-16 md:mb-24 max-w-3xl"
         >
           <p className="text-white text-3xl md:text-4xl font-light leading-[1.5] mb-3">
             Technology should feel natural.

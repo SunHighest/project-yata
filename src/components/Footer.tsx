@@ -17,7 +17,7 @@ export function Footer() {
           <p className="text-neutral-600 text-xs font-mono">
             Project YATA v0.0.1
           </p>
-          <p className="text-neutral-800 text-xs">
+          <p className="text-neutral-600 text-xs">
             © 2026 SunHighest Electronics. All rights reserved.
           </p>
         </div>

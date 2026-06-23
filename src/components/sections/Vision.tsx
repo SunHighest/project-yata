@@ -38,14 +38,14 @@ const phases = [
 
 export function Vision() {
   return (
-    <section className="py-32 px-8">
+    <section className="py-20 md:py-32 px-5 sm:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-20"
+          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-12 md:mb-20"
         >
           Vision
         </motion.p>
@@ -55,7 +55,7 @@ export function Vision() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-white text-2xl md:text-3xl font-light leading-relaxed mb-20 max-w-2xl"
+          className="text-white text-2xl md:text-3xl font-light leading-relaxed mb-12 md:mb-20 max-w-2xl"
         >
           人が毎日自然に会話したくなる
           <br />
@@ -70,7 +70,7 @@ export function Vision() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="bg-[#0a0a0a] p-10 flex flex-col gap-4"
+              className="bg-[#0a0a0a] p-6 sm:p-10 flex flex-col gap-4"
             >
               <div className="flex items-center justify-between">
                 <p className="text-neutral-600 text-xs tracking-widest">

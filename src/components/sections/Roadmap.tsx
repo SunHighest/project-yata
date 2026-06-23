@@ -32,14 +32,14 @@ const milestones = [
 
 export function Roadmap() {
   return (
-    <section className="py-32 px-8">
+    <section className="py-20 md:py-32 px-5 sm:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-20"
+          className="text-neutral-600 text-xs tracking-[0.4em] uppercase mb-12 md:mb-20"
         >
           Roadmap
         </motion.p>
@@ -83,7 +83,7 @@ export function Roadmap() {
                   className={`text-lg font-medium mb-1 ${
                     milestone.status === "done"
                       ? "text-white"
-                      : "text-neutral-600"
+                      : "text-neutral-500"
                   }`}
                 >
                   {milestone.title}
