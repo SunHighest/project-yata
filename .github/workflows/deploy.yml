@@ -29,15 +29,10 @@ jobs:
 
       - name: Deploy via SFTP
         env:
-          SSHPASS: ${{ secrets.FTP_PASSWORD }}
+          SFTP_HOST: ${{ secrets.FTP_SERVER }}
+          SFTP_USER: ${{ secrets.FTP_USERNAME }}
+          SFTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          SFTP_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
-          sudo apt-get install -y sshpass lftp
-          lftp -e "
-            set sftp:auto-confirm yes
-            set sftp:connect-program 'sshpass -e ssh -o StrictHostKeyChecking=no'
-            set net:max-retries 3
-            set net:timeout 30
-            open sftp://${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}
-            mirror --reverse --delete ./out/ ${{ secrets.FTP_SERVER_DIR }}
-            bye
-          "
+          pip install paramiko
+          python3 .github/scripts/deploy.py
