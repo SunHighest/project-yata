@@ -22,7 +22,7 @@ export function Header() {
         </span>
       </div>
       <span className="text-neutral-600 text-xs tracking-widest font-mono">
-        v0.0.1
+        v0.0.2
       </span>
     </motion.header>
   )
