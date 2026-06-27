@@ -36,3 +36,5 @@ jobs:
           local-dir: ./out/
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           state-name: .ftp-deploy-sync-state-v002.json
+          protocol: ftps
+          port: 21
