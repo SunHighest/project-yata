@@ -27,14 +27,17 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          state-name: .ftp-deploy-sync-state-v002.json
-          protocol: ftps
-          port: 21
+      - name: Deploy via SFTP
+        env:
+          SSHPASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get install -y sshpass lftp
+          lftp -e "
+            set sftp:auto-confirm yes
+            set sftp:connect-program 'sshpass -e ssh -o StrictHostKeyChecking=no'
+            set net:max-retries 3
+            set net:timeout 30
+            open sftp://${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}
+            mirror --reverse --delete ./out/ ${{ secrets.FTP_SERVER_DIR }}
+            bye
+          "
