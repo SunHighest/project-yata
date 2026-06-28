@@ -48,7 +48,7 @@ def ftp_delete_dir(ftp, path):
     entries = []
     try:
         ftp.retrlines(f"LIST {path}", entries.append)
-    except ftplib.error_perm:
+    except (ftplib.error_perm, ftplib.error_temp):
         return  # 存在しない場合はスキップ
 
     for entry in entries:
