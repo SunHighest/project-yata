@@ -55,8 +55,7 @@ Project YATA は、一時的な流行ではなく、10年後・20年後も価値
 | Version | Milestone | Status |
 |---|---|---|
 | v0.0.1 | Project Started — ビジョンと哲学の公開 | ✓ Shipped (2026.06) |
-| v0.0.2 | Voice Foundation — 日本語STT基盤の構築 | ✓ Shipped (2026.06) |
-| v0.1.0 | Voice Prototype — YATAとの最初の音声対話 | In Progress |
+| v0.1.0 | Voice Prototype — YATAとの最初の音声対話 | Upcoming |
 | v0.2.0 | First Conversation — 日常タスクをYATAと共に | Upcoming |
 
 ---

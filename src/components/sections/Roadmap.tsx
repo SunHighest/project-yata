@@ -13,21 +13,12 @@ const milestones = [
     status: "done",
   },
   {
-    version: "v0.0.2",
-    title: "Voice Foundation",
-    titleJa: "音声認識基盤の構築",
-    description:
-      "Faster-Whisperを採用した日本語STT基盤を構築。OSS First・Local Firstの設計でAPIに依存しない音声認識を実現。YATAが初めて耳を持った。",
-    date: "2026.06",
-    status: "done",
-  },
-  {
     version: "v0.1.0",
     title: "Voice Prototype",
     titleJa: "音声プロトタイプ",
     description: "YATAとの最初の音声対話を実現する。",
     date: "TBD",
-    status: "in_progress",
+    status: "upcoming",
   },
   {
     version: "v0.2.0",
@@ -68,8 +59,6 @@ export function Roadmap() {
                   className={`w-2 h-2 rounded-full shrink-0 ${
                     milestone.status === "done"
                       ? "bg-blue-400"
-                      : milestone.status === "in_progress"
-                      ? "border-2 border-blue-500 bg-transparent"
                       : "bg-neutral-800 border border-neutral-700"
                   }`}
                 />
@@ -89,15 +78,10 @@ export function Roadmap() {
                   {milestone.status === "done" && (
                     <span className="text-blue-400 text-xs">✓ Shipped</span>
                   )}
-                  {milestone.status === "in_progress" && (
-                    <span className="text-blue-500 text-xs">In Progress</span>
-                  )}
                 </div>
                 <h3
                   className={`text-lg font-medium mb-1 ${
                     milestone.status === "done"
-                      ? "text-white"
-                      : milestone.status === "in_progress"
                       ? "text-white"
                       : "text-neutral-500"
                   }`}

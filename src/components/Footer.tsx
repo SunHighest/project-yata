@@ -15,7 +15,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-start sm:items-end gap-1">
           <p className="text-neutral-600 text-xs font-mono">
-            Project YATA v0.0.2
+            Project YATA v0.0.1
           </p>
           <p className="text-neutral-600 text-xs">
             © 2026 SunHighest Electronics. All rights reserved.
