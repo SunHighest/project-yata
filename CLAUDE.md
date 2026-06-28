@@ -37,17 +37,24 @@ npm run build
 
 ---
 
-## デプロイ（手動）
+## デプロイ（自動スクリプト）
 
-**現在は手動デプロイのみ。GitHub Actions 自動デプロイは未稼働。**
+**`npm run deploy` で完結する。FileZilla は使わない。**
 
-手順:
-1. `npm run build` を実行
-2. FTPクライアント（FileZilla等）でさくらサーバーへ接続（SFTP/ポート22）
-3. サーバー上の `_next/` フォルダを**先に削除**する（必須）
-4. `out/` の中身を全てアップロードする
+初回のみ: `.env.deploy.example` をコピーして `.env.deploy` を作成し、FTP認証情報を記入する。
 
-> `_next/` を削除せずに上書きすると、旧ビルドの古いチャンクと新ビルドの HTML が混在して黒画面になる。
+```bash
+cp .env.deploy.example .env.deploy
+# .env.deploy を編集して FTP_HOST / FTP_USER / FTP_PASSWORD / FTP_REMOTE_DIR を記入
+npm run deploy
+```
+
+スクリプト (`scripts/deploy.py`) が以下を自動実行する:
+1. `npm run build`
+2. サーバーの `_next/` を削除
+3. `out/` の中身を全てアップロード
+
+> 手動アップロード（FileZilla）は廃止。人為的ミスが入るため。
 
 自動デプロイの課題は [docs/lessons.md](docs/lessons.md) を参照。
 
@@ -55,13 +62,13 @@ npm run build
 
 ## さくらインターネット 接続制約（重要）
 
-| 方式 | 結果 | 理由 |
-|---|---|---|
-| FTP (ポート21) | **NG** | GitHub Actions の IP を遮断 |
-| FTPS (ポート21, TLS) | **NG** | 同上 |
-| SFTP + パスワード認証 | **NG** | さくらは SSH パスワード認証を禁止 |
-| SFTP + 公開鍵認証 | **未設定** | 鍵の登録が必要 |
-| 手動アップロード | **OK** | 現在の運用方法 |
+| 方式 | 発信元 | 結果 | 理由 |
+|---|---|---|---|
+| FTP (ポート21) | GitHub Actions | **NG** | GitHub Actions の IP を遮断 |
+| FTP (ポート21) | ローカル Mac | **OK** | ユーザーの IP は遮断されない |
+| FTPS (ポート21, TLS) | GitHub Actions | **NG** | 同上 |
+| SFTP + パスワード認証 | どこでも | **NG** | さくらは SSH パスワード認証を禁止 |
+| SFTP + 公開鍵認証 | どこでも | **未設定** | 鍵の登録が必要 |
 
 ---
 
